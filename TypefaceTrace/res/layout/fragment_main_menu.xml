@@ -1,0 +1,51 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Typeface Trace"
+        android:layout_gravity="center|top"
+        android:paddingTop="30dp" />
+    
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_gravity="bottom|center"
+        android:orientation="vertical">
+        
+        <Button 
+	        android:id="@+id/bTrace"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="Start Tracing"
+	        android:layout_gravity="bottom|center"/>
+        
+	    <Button 
+	        android:id="@+id/bBrowse"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="Browse Typefaces"
+	        android:layout_gravity="bottom|center"/>
+	    
+	    <Button 
+	        android:id="@+id/bBrush"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="Brush Pen Guides"
+	        android:layout_gravity="bottom|center"/>
+	    
+	    <Button 
+	        android:id="@+id/bCaligraphy"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="Caligraphy Guides"
+	        android:layout_gravity="bottom|center"/>
+    
+    </LinearLayout>
+
+</LinearLayout>
