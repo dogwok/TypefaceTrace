@@ -35,18 +35,21 @@
 	        android:layout_height="wrap_content"
 	        android:text="Start Tracing"
 	        android:layout_gravity="bottom|center"
-	        android:layout_weight="1"/>
+	        android:layout_weight="1"
+	        android:onClick="onClick"/>
         
 	    <Button 
 	        android:id="@+id/bBrowse"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="Browse Typefaces"
+	        android:onClick="onClick"
 	        android:layout_gravity="bottom|center"
 	        android:layout_weight="1"/>
 	    
 	    <Button 
 	        android:id="@+id/bBrush"
+	        android:onClick="onClick"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="Brush Pen Guides"
@@ -54,6 +57,7 @@
 	        android:layout_weight="1"/>
 	    
 	    <Button 
+	        android:onClick="onClick"
 	        android:id="@+id/bCaligraphy"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
