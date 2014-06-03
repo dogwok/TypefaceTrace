@@ -32,8 +32,7 @@ import android.widget.ListView;
 	      list.add(values[i]);
 	    }
     
-	    final ArrayAdapter adapter = new ArrayAdapter(this,
-	            R.layout.rowlayout, R.id.label, values);
+	    final MyPerformanceArrayAdapter adapter = new MyPerformanceArrayAdapter(this, values); 
 	        listview.setAdapter(adapter);
 	        
 	        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
