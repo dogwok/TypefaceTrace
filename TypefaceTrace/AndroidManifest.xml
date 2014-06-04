@@ -28,6 +28,11 @@
             android:label="@string/app_name">
         </activity>
         
+        <activity
+            android:name="com.example.typefacetrace.Trace"
+            android:label="@string/app_name">
+        </activity>
+        
     </application>
 
 </manifest>
