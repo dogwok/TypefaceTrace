@@ -41,7 +41,7 @@ public class Trace extends Activity {
 	public void showTypefaceType(String typeface){
 		TextView typefaceTypeTV = (TextView)findViewById(R.id.tvTrace);
 		typefaceTypeTV.setText(typeface);
-		typefaceTypeTV.setTextSize(25); 
+		typefaceTypeTV.setTextSize(40); 
 		String typefacePath = "fonts/"+typeface+".ttf"; 
 		selectedTypeface = Typeface.createFromAsset(getAssets(), typefacePath);
 		typefaceTypeTV.setTypeface(selectedTypeface);

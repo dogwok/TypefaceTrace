@@ -10,7 +10,7 @@
         android:id="@+id/tvWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Typeface Trace The quick brown fox"
+        android:text="Typeface Trace"
         android:textSize="25dp"
         android:layout_gravity="center|top"
         android:paddingTop="30dp" 
