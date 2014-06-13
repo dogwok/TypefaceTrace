@@ -15,6 +15,7 @@ public class Trace extends Activity {
 	EditText traceLetters; 
 	int textSize_increment = 10;  
 	int count = 20; 
+	String typefacePath;
 	
     Typeface selectedTypeface; 
     
@@ -28,8 +29,11 @@ public class Trace extends Activity {
 		Button increaseButton = (Button)findViewById(R.id.increaseTextSize);
 		Button decreaseButton = (Button)findViewById(R.id.decreaseTextSize); 
 		Bundle b = getIntent().getExtras(); 
-		String typeface = b.getString("Typeface"); 
 		
+		String typeface = b.getString("Typeface"); 
+		typefacePath = "fonts/"+typeface+".ttf"; 
+		selectedTypeface = Typeface.createFromAsset(getAssets(), typefacePath); 
+		traceLetters.setTypeface(selectedTypeface);
 		showTypefaceType(typeface); 
 	}
 	
@@ -42,7 +46,6 @@ public class Trace extends Activity {
 		TextView typefaceTypeTV = (TextView)findViewById(R.id.tvTrace);
 		typefaceTypeTV.setText(typeface);
 		typefaceTypeTV.setTextSize(40); 
-		String typefacePath = "fonts/"+typeface+".ttf"; 
 		selectedTypeface = Typeface.createFromAsset(getAssets(), typefacePath);
 		typefaceTypeTV.setTypeface(selectedTypeface);
 	}
