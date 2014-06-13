@@ -1,6 +1,7 @@
 package com.example.typefacetrace;
 
 import android.app.Activity;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +16,8 @@ public class Trace extends Activity {
 	int textSize_increment = 10;  
 	int count = 20; 
 	
+    Typeface selectedTypeface; 
+    
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -38,6 +41,10 @@ public class Trace extends Activity {
 	public void showTypefaceType(String typeface){
 		TextView typefaceTypeTV = (TextView)findViewById(R.id.tvTrace);
 		typefaceTypeTV.setText(typeface);
+		typefaceTypeTV.setTextSize(25); 
+		String typefacePath = "fonts/"+typeface+".ttf"; 
+		selectedTypeface = Typeface.createFromAsset(getAssets(), typefacePath);
+		typefaceTypeTV.setTypeface(selectedTypeface);
 	}
 	
 	public void increaseTextSize(View inc){

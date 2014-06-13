@@ -20,8 +20,8 @@ import android.widget.ListView;
 	
 
 		final ListView listview = (ListView) findViewById(R.id.listview);
-	    String[] values = new String[] { "Bodoni", "Clarendon", "Akzedenz Grotesk",
-	    		"Avenir", "Din", "Futura", "News Gothic", "Frutiger"};
+	    String[] values = new String[] { "Tattoo", "Boert", "Castor",
+	    		"Dollie", "Galileo", "Raleway", "Germanica", "Film"};
 	    
 	    final ArrayList<String> list = new ArrayList<String>();
 	    for (int i = 0; i < values.length; ++i) {

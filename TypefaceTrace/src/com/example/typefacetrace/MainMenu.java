@@ -25,7 +25,7 @@ public class MainMenu extends ActionBarActivity {
         brushButton = (Button)findViewById(R.id.bBrush); 
         caligraphyButton = (Button)findViewById(R.id.bCaligraphy); 
         welcomeStatement = (TextView)findViewById(R.id.tvWelcome); 
-        font = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Bold.ttf");
+        font = Typeface.createFromAsset(getAssets(), "fonts/Raleway.ttf");
         welcomeStatement.setTypeface(font);
     }
 
