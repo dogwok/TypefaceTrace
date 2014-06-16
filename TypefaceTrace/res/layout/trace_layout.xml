@@ -5,40 +5,51 @@
     android:orientation="vertical"
     android:id="@+id/traceLayout" >
     
+    <LinearLayout
+        android:layout_width = "fill_parent"
+        android:layout_height ="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/tracingProperties">
+        
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="left"
         android:id="@+id/tvTrace"
+        android:paddingLeft="20dp"
+        android:layout_weight="2"
 	/>
-    
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center" 
-        android:id="@+id/textOptions"
-        android:orientation="horizontal">
-    
-    <Button
-        android:id="@+id/increaseTextSize"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="increaseTextSize"
-        android:text="Increase Font Size" />
-    
-    <Button
-        android:id="@+id/decreaseTextSize"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="decreaseTextSize"
-        android:text="Decrease Font Size" />
-    
-    </LinearLayout>
     
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/etTrace"
-        android:layout_gravity = "center" />
+        android:id="@+id/etTraceText"
+        android:layout_gravity = "center"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp" 
+        android:layout_weight="1"/>
+    
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etTraceSize"
+        android:layout_gravity = "right"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_weight="1" />
+
+    </LinearLayout>
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:id="@+id/tvTraceText" />
+    
+    <SeekBar
+        android:layout_width="fill_parent"
+        android:layout_height="10dp"
+        android:id="@+id/sbZoomBar"
+        />
 
 </LinearLayout>
