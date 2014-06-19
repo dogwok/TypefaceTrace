@@ -5,30 +5,38 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
 public class Trace extends Activity {
 
 	LinearLayout traceLayout;
-	EditText traceEditText, traceEditTextSize; 
+	EditText traceEditText;
 	TextView traceTextView;
 	SeekBar zoomBar; 
+	Button lockButton; 
 	String typefacePath, typeface; 
     Typeface selectedTypeface; 
-	int textSize_increment = 10;  
+	int minimumTextSize = 60;   
 	int count = 20; 
+	boolean activityEnabled = true; 
 	 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.trace_layout);
-		initTraceTextInput();
-		initTextSizeInput(); 
+		lockButton = (Button)findViewById(R.id.lockButton);
+		lockButton.setOnClickListener(lockEverything);
 		loadTypeface();
 		showTypefaceType(typeface); 
+		initTraceTextInput();
+		initTextSizeInput(); 
 	}
 	
 	@Override
@@ -37,9 +45,7 @@ public class Trace extends Activity {
 	}
 	
 	public void initTraceTextInput(){
-		traceEditText = (EditText)findViewById(R.id.etTraceText);
-		traceTextView = (TextView)findViewById(R.id.tvTraceText); 
-		
+		traceEditText = (EditText)findViewById(R.id.etTraceText);	
 		traceEditText.addTextChangedListener(new TextWatcher(){
 
 			@Override
@@ -66,8 +72,30 @@ public class Trace extends Activity {
 	}
 	
 	public void initTextSizeInput(){
-		traceEditTextSize = (EditText)findViewById(R.id.etTraceSize);
-		zoomBar = (SeekBar)findViewById(R.id.sbZoomBar); 
+		
+		zoomBar = (SeekBar)findViewById(R.id.sbZoomBar);
+		zoomBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener(){
+
+			@Override
+			public void onProgressChanged(SeekBar arg0, int arg1, boolean arg2) {
+				// TODO Auto-generated method stub
+				traceTextView.setTextSize(minimumTextSize + (4*(zoomBar.getProgress())));
+			}
+
+			@Override
+			public void onStartTrackingTouch(SeekBar arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void onStopTrackingTouch(SeekBar arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+
 	}
 	
 	public void loadTypeface(){
@@ -79,11 +107,31 @@ public class Trace extends Activity {
 	
 	public void showTypefaceType(String typeface){
 		TextView typefaceTypeTV = (TextView)findViewById(R.id.tvTrace);
+		traceTextView = (TextView)findViewById(R.id.tvTraceText); 
+		traceTextView.setTextSize(60);
 		typefaceTypeTV.setText(typeface);
 		typefaceTypeTV.setTextSize(40); 
+		
 		selectedTypeface = Typeface.createFromAsset(getAssets(), typefacePath);
 		typefaceTypeTV.setTypeface(selectedTypeface);
+		traceTextView.setTypeface(selectedTypeface);
 	}
+	
+	private OnClickListener lockEverything = new OnClickListener(){
+		
+		public void onClick(View v){
+			if(activityEnabled){
+				traceEditText.setEnabled(false);
+				zoomBar.setEnabled(false);
+				activityEnabled = false;
+			} else {
+				traceEditText.setEnabled(true);
+				zoomBar.setEnabled(true);
+				activityEnabled = true; 
+			}
+		}
+	};
+
 	
 	
 }
