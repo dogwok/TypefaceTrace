@@ -34,8 +34,7 @@ public class TypefaceListArrayAdapter extends ArrayAdapter<String> {
       // configure view holder
       ViewHolder viewHolder = new ViewHolder();
       viewHolder.text = (TextView) rowView.findViewById(R.id.label);
-      viewHolder.image = (ImageView) rowView
-          .findViewById(R.id.icon);
+      viewHolder.image = (ImageView) rowView.findViewById(R.id.icon);
       rowView.setTag(viewHolder);
     }
 
@@ -46,10 +45,7 @@ public class TypefaceListArrayAdapter extends ArrayAdapter<String> {
     if (s.startsWith("Windows7") || s.startsWith("iPhone")
         || s.startsWith("Solaris")) {
       holder.image.setImageResource(R.drawable.ic_launcher);
-    } else {
-      holder.image.setImageResource(R.drawable.abc_textfield_searchview_right_holo_light);
-    }
-
+    } 
     return rowView;
   }
 }

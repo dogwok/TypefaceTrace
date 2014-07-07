@@ -1,8 +1,10 @@
 package com.example.typefacetrace;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -25,10 +27,13 @@ public class Trace extends Activity {
     Typeface selectedTypeface; 
 	int minimumTextSize = 60;   
 	int count = 20; 
+	int uiOptions;
 	boolean activityEnabled = true; 
 	 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+		StrictMode.setThreadPolicy(policy);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.trace_layout);
 		lockButton = (Button)findViewById(R.id.lockButton);
@@ -117,7 +122,7 @@ public class Trace extends Activity {
 		traceTextView.setTypeface(selectedTypeface);
 	}
 	
-	private OnClickListener lockEverything = new OnClickListener(){
+	@SuppressLint("NewApi") private OnClickListener lockEverything = new OnClickListener(){
 		
 		public void onClick(View v){
 			if(activityEnabled){
